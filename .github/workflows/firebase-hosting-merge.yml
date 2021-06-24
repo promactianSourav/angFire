@@ -13,10 +13,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Cache node modules
       run: npm ci
-    - name: Install dependencies
-      run: npm install
-    - name: Install angular cli
-      run: npm install -g @angular/cli > /dev/null
+    - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
+      with:
+        node-version: '12.x'
+    - run: npm install
+    - run: npm install -g @angular/cli > /dev/null
     - name: Build
       run: npm run build --prod
     - name: Upload artifact
