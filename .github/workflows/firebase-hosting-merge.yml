@@ -15,7 +15,8 @@ jobs:
       run: npm ci
     - name: Install dependencies
       run: npm install
-     # run: npm install -g @angular/cli > /dev/null
+    - name: Install Angular Cli
+      run: npm install -g @angular/cli
     - name: Build
       run: npm run build --prod
     - name: Upload artifact
