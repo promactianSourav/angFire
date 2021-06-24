@@ -23,10 +23,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
       - name: Restore dependencies
+        if: steps.cacheStep.outputs.cache-hit != 'true'
       - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
         with:
           node-version: '12.x'
-        if: steps.cacheStep.outputs.cache-hit != 'true'
       - run: npm install
       - name: Build
       - run: npm run build --prod
