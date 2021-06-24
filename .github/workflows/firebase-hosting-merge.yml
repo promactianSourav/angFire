@@ -16,7 +16,7 @@ jobs:
         node-version: '12.x'
     - run: npm install
     - run: npm install -g @angular/cli > /dev/null
-    - run: ng build --prod
+    - run: ng build
     - name: Upload artifact
       if: success()
       uses: actions/upload-artifact@v1
