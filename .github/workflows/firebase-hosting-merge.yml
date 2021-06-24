@@ -28,8 +28,8 @@ jobs:
           node-version: '12.x'
         if: steps.cacheStep.outputs.cache-hit != 'true'
       - run: npm install
-      - name: Install Angular Cli
       - run: npm install -g @angular/cli > /dev/null
+      - name: Build
       - run: ng build --prod
       - name: Archive build
         if: success()
@@ -37,6 +37,7 @@ jobs:
         with:
           name: deploy_dist
           path: dist/angFire
+      - name: Firebase Deploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
