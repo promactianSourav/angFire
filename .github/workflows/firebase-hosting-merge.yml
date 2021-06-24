@@ -16,7 +16,7 @@ jobs:
           node-version: '12.x'
       - run: npm install
       - run: npm install -g @angular/cli > /dev/null
-      - run: npm run build:prod
+      - run: npm run build --prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
