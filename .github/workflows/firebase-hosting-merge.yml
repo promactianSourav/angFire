@@ -12,9 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Cache node modules
-      run: npm ci
-    - name: Build
-      run: ng build --prod
+      run: npm ci && npm run build
     - name: Upload artifact
       if: success()
       uses: actions/upload-artifact@v1
