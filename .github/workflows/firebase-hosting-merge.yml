@@ -13,10 +13,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Cache node modules
       run: npm ci
-    - name: Install dependencies
-      run: npm install
     - name: Install Angular Cli
-      run: npm install -g @angular/cli
+      run: npm install -g @angular/cli > /dev/null
     - name: Build
       run: npm run build --prod
     - name: Upload artifact
